@@ -1,3 +1,6 @@
+A Node.js application which allows users to login and create users.
+
+
 | What K8s will do | What K8s Requires |
 | ------------- |:-------------:|
 | Create your objects and manage them | Create the Cluster and the Node Instances |
