@@ -1,10 +1,12 @@
+### Description
 A Node.js application which allows users to login and create users.
 
-MongoDB Atlas
-Node.js
-AWS EKS
-AWS CloudFormation
-AWS EFS
+### Tech Stack
+- AWS EKS
+- Node.js
+- MongoDB Atlas
+- AWS CloudFormation
+- AWS EFS
 
 
 
