@@ -50,27 +50,35 @@ t3.micro might cause app in pending state. Choose t3.small and above.
 
 ### Check cluster
 `kubectl get deployments`
+
 auth-deployment    1/1     1            1           13s
+
 users-deployment   1/1     1            1           11s
 
 
 `kubectl get pods`
 
 auth-deployment-8664687865-w2p8t    1/1     Running   0          14m
+
 users-deployment-686f7c6949-lk5ml   1/1     Running   0          14m
 
 `kubectl get services`
 auth-service    ClusterIP      10.100.121.105   <none>                                                                   3000/TCP       20m
-kubernetes      ClusterIP      10.100.0.1       <none>                                                                   443/TCP        78m       
-users-service   LoadBalancer   10.100.105.48    af9761ba97cfa4fb48448545f261de12-896108335.us-east-1.elb.amazonaws.com   80:32609/TCP   20m       
+  
+kubernetes      ClusterIP      10.100.0.1       <none>                                                                   443/TCP        78m    
+  
+users-service   LoadBalancer   10.100.105.48    af9761ba97cfa4fb48448545f261de12-896108335.us-east-1.elb.amazonaws.com   80:32609/TCP   20m    
+  
 ### Check Postman
 POST: af9761ba97cfa4fb48448545f261de12-896108335.us-east-1.elb.amazonaws.com/signup
+  
 POST: af9761ba97cfa4fb48448545f261de12-896108335.us-east-1.elb.amazonaws.com/login
 
 # Adding EFS as a CIS Volume
 ### Deploy the driver:
 https://github.com/kubernetes-sigs/aws-efs-csi-driver
-kubectl apply -k "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.3"
+  
+`kubectl apply -k "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.3"`
 
 ### Create EC2 Security Group
 Security group name: eks-efs
@@ -94,8 +102,12 @@ File system ID: fs-00185cf69e92cabb7
 `kubectl apply -f users.yaml`
 
 storageclass.storage.k8s.io/efs-sc created
+  
 persistentvolume/efs-pv created
+  
 persistentvolumeclaim/efs-pvc created
+  
 service/users-service unchanged
+  
 deployment.apps/users-deployment created
 
